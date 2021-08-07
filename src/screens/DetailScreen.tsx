@@ -7,19 +7,18 @@ import {
     Text,
     StyleSheet,
     ViewStyle,
-    TouchableOpacity,
 } from 'react-native'
-import Icon from 'react-native-vector-icons/MaterialIcons';
 import { ScreenProp } from '../../types';
 import Header from '../components/Header';
 import COLORS from '../consts/colors';
+import Button from '../components/Button';
+import Quantity from '../components/Quantity';
 
 
 interface StyleProps {
     container: ViewStyle;
     priceView: ViewStyle;
     checkoutView: ViewStyle;
-    qntView: ViewStyle;
 }
 
 const DetailScreen: React.FunctionComponent<ScreenProp<'Detail'>> = ({ navigation, route }) => {
@@ -45,38 +44,8 @@ const DetailScreen: React.FunctionComponent<ScreenProp<'Detail'>> = ({ navigatio
                     </Text>
                 </View>
                 <View style={styles.checkoutView}>
-                    <View style={{ flexDirection: 'row', justifyContent: 'space-evenly', width: '50%', alignItems: 'center' }}>
-                        <TouchableOpacity
-                            style={styles.qntView}
-                            activeOpacity={0.8}
-                            onPress={() => setQuantity(quantity > 0 ? quantity - 1 : quantity)}
-                        >
-                            <Icon name='remove' size={25} />
-                        </TouchableOpacity>
-                        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{quantity}</Text>
-                        <TouchableOpacity
-                            activeOpacity={0.8}
-                            style={styles.qntView}
-                            onPress={() => setQuantity(quantity + 1)}
-                        >
-                            <Icon name='add' size={25} />
-                        </TouchableOpacity>
-                    </View>
-                    <TouchableOpacity
-                        style={{
-                            backgroundColor: COLORS.green,
-                            height: 50,
-                            width: 150,
-                            justifyContent: 'center',
-                            alignItems: 'center',
-                            borderRadius: 30,
-                        }}
-                        activeOpacity={0.8}
-                    >
-                        <Text style={{ fontSize: 18, fontWeight: 'bold', color: COLORS.white }}>
-                            Buy
-                        </Text>
-                    </TouchableOpacity>
+                    <Quantity quantity={quantity} setQuantity={setQuantity} />
+                    <Button />
                 </View>
             </View>
         </SafeAreaView>
@@ -108,15 +77,6 @@ const styles = StyleSheet.create<StyleProps>({
         alignItems: 'center',
         marginTop: 20,
         paddingRight: 20,
-    },
-    qntView: {
-        height: 40,
-        width: 60,
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderWidth: 1,
-        borderColor: COLORS.green,
-        borderRadius: 10
     }
 });
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import DetailScreen from "./src/components/DetailScreen";
-import HomeScreen from "./src/components/HomeScreen";
 import { NavigationParamList } from "./types";
+import HomeScreen from './src/screens/HomeScreen';
+import DetailScreen from './src/screens/DetailScreen';
 
 
 const Stack = createStackNavigator<NavigationParamList>()

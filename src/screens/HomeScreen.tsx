@@ -11,10 +11,10 @@ import {
 import { ScreenProp } from '../../types';
 import COLORS from '../consts/colors';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import Search from './Search';
+import Search from '../components/Search';
 import Categories from '../components/Categories';
 import plants from '../consts/plants';
-import PlantCard from './PlantCard';
+import PlantCard from '../components/PlantCard';
 
 
 interface StyleProps {
